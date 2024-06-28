@@ -1,0 +1,34 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/vue@3.0.2"></script>
+    <title>Document</title>
+</head>
+<body>
+    <h1>Welcome to vue js</h1>
+
+    <div id="app">
+        <!-- <p>{{title}} - {{author}} - {{age}}</p>
+        
+        <button v-on:click="age++"> increase age by 1</button>
+        <div @click="changeTitle(title)">change the title</div> -->
+       <div v-if="showbooks">
+        
+        <p>{{title}} - {{author}} - {{age}}</p>
+    </div>
+        <button @click="toggleShowBooks">
+            <span v-if="showbooks">hide content</span>
+            <span v-else>show content</span>
+        </button>
+
+        <div v-show="showbooks"> current message</div>
+       
+    </div>
+
+    <p>no here</p>
+
+
+    <script src="app.js"></script>
+</body>
+</html>
