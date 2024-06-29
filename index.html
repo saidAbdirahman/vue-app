@@ -4,6 +4,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://unpkg.com/vue@3.0.2"></script>
     <title>Document</title>
+
+    <style>
+        .box{
+            padding: 100px ;
+            width: 400px;
+            display: inline-block;
+            height: 400px;
+            background: #ddd;
+            margin: 20px;
+            text-align: center;
+            
+        }
+    </style>
 </head>
 <body>
     <h1>Welcome to vue js</h1>
@@ -26,7 +39,11 @@
        
     </div>
 
-    <p>no here</p>
+    <br>
+    <div class="box" @mouseover="handleEvent(5)">Mossover</div>
+    <div class="box" @mouseleave="handleEvent()">Mouseleave</div>
+    <div class="box" @click="Event(4)">Mouse double click</div>
+    <div class="box" @mouseover="handleMouseMove">position - {{x}} - {{y}}</div>
 
 
     <script src="app.js"></script>
