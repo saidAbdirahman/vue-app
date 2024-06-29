@@ -16,19 +16,49 @@
             text-align: center;
             
         }
+        body{
+            background: #eee;
+            max-width: 960px;
+            margin: 20px auto;
+        }
+        p,h3,ul{
+            margin: 0;
+            padding: 0;
+        }
+       
+        li{
+            list-style-type: none;
+            background: #fff;
+            margin: 20px auto;
+            padding: 10px 20px;
+            border-radius: 10px;
+            align-items: center;
+            display: flex;justify-content: space-between;
+        }
+        li.fav{
+            background: #ff9ed2;
+            color: white;
+        }
     </style>
 </head>
 <body>
     <h1>Welcome to vue js</h1>
 
     <div id="app">
-        <!-- <p>{{title}} - {{author}} - {{age}}</p>
+      <!-- v-bind -->
+        <!-- <a :href="url">Best website ever</a> -->
+
+
+       <div v-if="showbooks" >
         
-        <button v-on:click="age++"> increase age by 1</button>
-        <div @click="changeTitle(title)">change the title</div> -->
-       <div v-if="showbooks">
-        
-        <p>{{title}} - {{author}} - {{age}}</p>
+        <ul v-for="book in filteredBooks">
+            <li :class="{fav: book.isfav}"  @click="togglebook(book)">
+                <img :src="book.img" :alt="book.title" >
+                <h3>{{book.title}}</h3>
+                <p>{{book.author}}</p>
+            </li>
+        </ul>
+       
     </div>
         <button @click="toggleShowBooks">
             <span v-if="showbooks">hide content</span>
@@ -38,12 +68,6 @@
         <div v-show="showbooks"> current message</div>
        
     </div>
-
-    <br>
-    <div class="box" @mouseover="handleEvent(5)">Mossover</div>
-    <div class="box" @mouseleave="handleEvent()">Mouseleave</div>
-    <div class="box" @click="Event(4)">Mouse double click</div>
-    <div class="box" @mouseover="handleMouseMove">position - {{x}} - {{y}}</div>
 
 
     <script src="app.js"></script>

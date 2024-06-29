@@ -4,18 +4,22 @@ const app = Vue.createApp({
     //template: '<h1>I am the template</h1>'
     data() {
         return {
+            url: 'http://www.thesaidninja.co.so',
             'showbooks':true,
-            'title' : 'The final project',
-            'author' : 'Said Abdirahman',
-            'age' : '21',
-            x : 0,
-            y:0
+           books: [
+            {title: 'jecyl' ,author: 'Said abdiirahman', img: 'assets/1.jpg', isfav : true},
+            {title: 'Hogamiye saxda ah' ,author: 'Eng Masoud',  img: 'assets/2.jpg', isfav : false},
+            {title: 'Hayanka Noslaha' ,author: 'Said abdiirahman',  img: 'assets/3.jpg', isfav : true}
+           ]
         }
     },
     methods: {
         toggleShowBooks() {
             this.showbooks = !this.showbooks
         }, 
+        togglebook(book) {
+           book.isfav =  !book.isfav;
+        },
         
         handleEvent(e,data) {
             console.log(e,e.type);
@@ -37,6 +41,11 @@ const app = Vue.createApp({
         //     this.title = title
         // }
 ,
+    },
+    computed: {
+        filteredBooks() {
+            return this.books.filter((book) => book.isfav)
+        }
     }
 });
 
